@@ -13,7 +13,7 @@ const categories = [
 
 export const Categories = () => {
     return (
-        <section className="container flex gap-2.5 md:grid md:grid-cols-2 md:grid-rows-2 lg:grid lg:grid-cols-4 lg:gap-4 mb-10 overflow-x-auto scrollbar-hide snap-x snap-mandatory">
+        <section className="container flex gap-2.5 md:grid md:grid-cols-2 lg:grid lg:grid-cols-4 lg:gap-4 mb-10 overflow-x-auto scrollbar-hide snap-x snap-mandatory">
             {categories.map((category, index) => {
                 return (
                     <div key={index} style={{backgroundImage: `url(${category.image})`}} className="h-125 bg-cover bg-center rounded-[20px] relative overflow-hidden flex items-center justify-center shrink-0 w-[95%] md:w-full snap-center">
