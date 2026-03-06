@@ -5,6 +5,7 @@ import galeriaTenisColorido from "../../assets/images/galeria-tenis-colorido.jpg
 import galeriaTenisBrancoEPreto from "../../assets/images/galeria-tenis-branco-e-preto.jpg";
 import galeriaTenisCinza from "../../assets/images/galeria-tenis-cinza.jpg";
 import { Button } from "../Button";
+import { Overlay } from "../Overlay";
 
 export const Gallery = () => {
   return (
@@ -26,18 +27,10 @@ export const Gallery = () => {
           className="object-cover w-full h-full"
         />
 
-        <div className="absolute text-white text-center">
-          <h2 className="text-[20px] font-normal tracking-wide mb-2.5">
-            Krypton One
-          </h2>
-          <p className="text-2xl mb-5 font-normal tracking-wide">
-            Estilo urbano com atitude
-          </p>
-          <div className="flex gap-2.5 text-[20px]">
-            <Button variant="secondary">Feminino</Button>
-            <Button variant="secondary">Masculino</Button>
-          </div>
-        </div>
+        <Overlay title="Krypton One" subtitle="Estilo urbano com atitude" className="justify-center">
+          <Button variant="secondary">Feminino</Button>
+          <Button variant="secondary">Masculino</Button>
+        </Overlay>
       </div>
 
       {/* 2 - imagem do sapato roxo */}
