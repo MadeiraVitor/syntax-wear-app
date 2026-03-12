@@ -17,8 +17,8 @@ function RouteComponent() {
   const discountPrice = originalPrice * 0.9;
 
   return (
-    <section className="container pt-40 md:pt-50 pb-10 md:px-10">
-      <nav className="text-sm mb-15 ml-5">
+    <section className="container mb-14 pt-44 md:pt-54 pb-10 md:px-10">
+      <nav className="text-sm mb-25 ml-5">
         <Link to="/">Home</Link> / <Link to="/products">Produtos</Link> /{" "}
         <span className="font-semibold">{productFound?.name}</span>
       </nav>
@@ -60,12 +60,20 @@ function RouteComponent() {
             <p className="text-sm">Calcular o prazo de entrega</p>
 
             <form className="flex gap-3">
-                <input type="text" placeholder="Digite seu CEP" className="border border-[#c0c0c0] rounded-md p-3" />
-                <button className="bg-black text-white py-3 px-6 rounded-md cursor-pointer hover:bg-gray-800">Calcular</button>
+              <input
+                type="text"
+                placeholder="Digite seu CEP"
+                className="border border-[#c0c0c0] rounded-md p-3"
+              />
+              <button className="bg-black text-white py-3 px-6 rounded-md cursor-pointer hover:bg-gray-800">
+                Calcular
+              </button>
             </form>
           </div>
 
-            <button className="bg-green-600 text-white p-5 w-full rounded-md cursor-pointer hover:bg-green-500">Adicionar ao carrinho</button>
+          <button className="bg-green-600 text-white p-5 w-full rounded-md cursor-pointer hover:bg-green-500">
+            Adicionar ao carrinho
+          </button>
         </div>
       </div>
     </section>
