@@ -1,12 +1,15 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { products } from "../../../mocks/products";
 import { formatCurrency } from "../../../utils/format-currency";
+import { useContext } from "react";
+import { CartContext } from "../../../contexts/CartContext";
 
 export const Route = createFileRoute("/_app/products/$productId")({
   component: RouteComponent,
 });
 
 function RouteComponent() {
+  const { addToCart } = useContext(CartContext);
   const { productId } = Route.useParams();
 
   const productFound = products.find(
@@ -71,7 +74,10 @@ function RouteComponent() {
             </form>
           </div>
 
-          <button className="bg-green-600 text-white p-5 w-full rounded-md cursor-pointer hover:bg-green-500">
+          <button
+            className="bg-green-600 text-white p-5 w-full rounded-md cursor-pointer hover:bg-green-500"
+            onClick={() => addToCart(productFound!)}
+          >
             Adicionar ao carrinho
           </button>
         </div>
