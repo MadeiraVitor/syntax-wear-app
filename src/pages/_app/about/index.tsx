@@ -8,8 +8,8 @@ export const Route = createFileRoute("/_app/about/")({
 function RouteComponent() {
   return (
     <section className="flex flex-col md:flex-row items-center md:h-screen">
-      <div className="h-100 md:h-full md:w-1/2">
-        <img src={bannerAbout} alt="Homem sentado com tênis da marca" className="size-full object-cover" />
+      <div className="h-100 md:h-full md:w-1/2 container py-6">
+        <img src={bannerAbout} alt="Homem sentado com tênis da marca" className="size-full object-cover rounded-[20px]" />
       </div>
 
       <div className="px-8 py-16 lg:px-20 md:w-1/2 h-full flex flex-col justify-center">
