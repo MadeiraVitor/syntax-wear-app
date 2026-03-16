@@ -20,13 +20,13 @@ function RouteComponent() {
   const discountPrice = originalPrice * 0.9;
 
   return (
-    <section className="container mb-14 pt-44 md:pt-54 pb-10 md:px-10">
+    <section className="container mb-14 pt-44 md:px-10 lg:h-220">
       <nav className="text-sm mb-25 ml-5">
         <Link to="/">Home</Link> / <Link to="/products">Produtos</Link> /{" "}
         <span className="font-semibold">{productFound?.name}</span>
       </nav>
 
-      <div className="flex justify-center gap-10">
+      <div className="flex flex-col lg:flex-row items-center justify-center gap-10">
         <img
           src={productFound?.image}
           alt={productFound?.name}
