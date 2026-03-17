@@ -6,8 +6,11 @@ import galeriaTenisBrancoEPreto from "../../assets/images/galeria-tenis-branco-e
 import galeriaTenisCinza from "../../assets/images/galeria-tenis-cinza.jpg";
 import { Button } from "../Button";
 import { Overlay } from "../Overlay";
+import { useRouter } from "@tanstack/react-router";
 
 export const Gallery = () => {
+  const router = useRouter();
+
   return (
     <section
       className="container w-full grid gap-2.5 md:gap-7.5 
@@ -27,9 +30,33 @@ export const Gallery = () => {
           className="object-cover w-full h-full"
         />
 
-        <Overlay title="Krypton One" subtitle="Estilo urbano com atitude" className="justify-center">
-          <Button variant="secondary">Feminino</Button>
-          <Button variant="secondary">Masculino</Button>
+        <Overlay
+          title="Krypton One"
+          subtitle="Estilo urbano com atitude"
+          className="justify-center"
+        >
+          <Button
+            variant="secondary"
+            onClick={() =>
+              router.navigate({
+                to: "/products/category/$category",
+                params: { category: "feminino" },
+              })
+            }
+          >
+            Feminino
+          </Button>
+          <Button
+            variant="secondary"
+            onClick={() =>
+              router.navigate({
+                to: "/products/category/$category",
+                params: { category: "masculino" },
+              })
+            }
+          >
+            Masculino
+          </Button>
         </Overlay>
       </div>
 
