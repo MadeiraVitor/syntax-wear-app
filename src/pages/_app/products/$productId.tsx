@@ -21,7 +21,7 @@ function RouteComponent() {
   const discountPrice = originalPrice * 0.9;
 
   return (
-    <section className="container pt-44 md:px-10 lg:min-h-[80vh]">
+    <section className="container pt-44 mb-10 md:px-10 lg:min-h-[80vh]">
       <nav className="text-sm mb-25 ml-5">
         <Link to="/">Home</Link> / <Link to="/products">Produtos</Link> /{" "}
         <span className="font-semibold">{productFound?.name}</span>
