@@ -47,7 +47,7 @@ export const Header = () => {
                 <MenuMobile navLinks={navLinks} />
               </li>
               <li className="hidden lg:block">
-                <Link to="/signin">
+                <Link to="/signup">
                   <img src={IconUser} alt="Ícone de login" />
                 </Link>
               </li>

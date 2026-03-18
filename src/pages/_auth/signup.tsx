@@ -6,6 +6,9 @@ import GoogleIcon from '@/assets/images/google-icon.png'
 
 export const Route = createFileRoute('/_auth/signup')({
   component: RouteComponent,
+  head: () => ({
+    meta: [{ title: "SyntaxWear - Cadastro" }],
+  }),
 })
 
 function RouteComponent() {

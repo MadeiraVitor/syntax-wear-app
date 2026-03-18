@@ -7,6 +7,17 @@ import { CEPForm } from "../../../components/CEPForm";
 
 export const Route = createFileRoute("/_app/products/$productId")({
   component: RouteComponent,
+  head: ({ params }) => {
+    const productFound = products.find(
+      (product) => product.id === Number(params.productId),
+    );
+
+    const title = productFound
+      ? `SyntaxWear - ${productFound.name}`
+      : "SyntaxWear - Produto não encontrado";
+
+    return { meta: [{ title }] };
+  },
 });
 
 function RouteComponent() {
