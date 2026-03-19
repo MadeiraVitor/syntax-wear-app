@@ -1,73 +1,116 @@
-# React + TypeScript + Vite
+<h1 align="center">
+    Syntax Wear – E-commerce de Calçados
+</h1>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicação de uma loja virtual de calçados desenvolvida com foco em navegação moderna, experiência de compra e organização de componentes reutilizáveis, incluindo catálogo de produtos, filtro por categoria, detalhe de produto, carrinho lateral e páginas institucionais.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 📄 Descrição
 
-## React Compiler
+Este projeto consiste em um e-commerce (Syntax Wear) desenvolvido para praticar conceitos fundamentais de desenvolvimento front-end, como:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Roteamento baseado em arquivos
+- Gerenciamento de estado global com Context API
+- Renderização dinâmica de catálogo e detalhe de produto
+- Validação de formulários com React Hook Form + Zod
+- Persistência de estado no Local Storage
 
-## Expanding the ESLint configuration
+A aplicação permite que o usuário explore produtos, visualize detalhes, calcule frete por CEP e gerencie itens no carrinho de forma simples e intuitiva, mantendo uma interface moderna e responsiva.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 🔗 Preview
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+<div align="center">
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+  ### Mobile 📱  
+  <img src="./src/assets/images/syntaxwear-mobile.gif" alt="mobile" height="425">
+
+  <br>
+  
+  ### Desktop 💻
+  <img src="./src/assets/images/syntaxwear-desktop.gif" alt="desktop" height="425">
+</div>
+
+<br>
+
+
+🚀 Deploy do projeto:
+<a href="https://syntax-wear-app-sage.vercel.app/" target="_blank">Deploy</a>
+
+
+---
+
+## 🚀 Tecnologias Utilizadas
+
+- React
+- TypeScript
+- TailwindCSS
+- TanStack Router
+- Context API
+- React Hook Form
+- Zod
+- React Icons
+- Vite
+
+---
+
+## ⚙️ Funcionalidades
+
+- Página inicial com banner, categorias e galeria
+- Listagem de produtos
+- Filtro de produtos por categoria via rota dinâmica
+- Página de detalhes do produto com preço promocional
+- Cálculo de frete por CEP com consumo da API ViaCEP
+- Adição de produtos ao carrinho
+- Incremento/decremento de quantidade no carrinho
+- Remoção de itens do carrinho
+- Persistência do carrinho no Local Storage
+- Menu mobile com navegação responsiva
+- Páginas institucionais (Sobre e Nossas Lojas)
+- Telas de autenticação (Entrar e Cadastro)
+- Validação de formulário de cadastro com regras e mensagens de erro
+
+---
+
+## ▶️ Como rodar o projeto localmente
+
+Siga os passos abaixo para rodar o projeto em sua máquina:
+
+```bash
+# Clone o repositório
+git clone https://github.com/MadeiraVitor/syntax-wear-app.git
+
+# Acesse a pasta do projeto
+cd syntax-wear-app
+
+# Instale as dependências
+npm install
+
+# Inicie o servidor de desenvolvimento
+npm run dev
 ```
+O projeto estará disponível em:
+http://localhost:5173
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 📚 Aprendizados
+Durante o desenvolvimento deste projeto, foi possível praticar:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- Estruturação de rotas com TanStack Router
+- Gerenciamento de estado global com Context API
+- Persistência de dados com Local Storage
+- Criação de componentes reutilizáveis e escaláveis
+- Renderização dinâmica de listas e páginas de detalhe
+- Validação robusta de formulários com Zod e React Hook Form
+- Consumo de API externa para consulta de CEP e cálculo de frete
+- Organização de layout responsivo para desktop e mobile
+- Estilização com TailwindCSS e tokens de tema
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 👤 Autor
+<div align="center">
+    <p>Desenvolvido por <strong>Vitor Madeira</strong></p>
+    <a href="https://www.linkedin.com/in/vitor-madeira/" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a>
+    <a href = "mailto:vitorsoutom@hotmail.com"><img src="https://img.shields.io/badge/-Email-%23333?style=for-the-badge&logo=gmail&logoColor=white" target="_blank"></a>
+</div>
+
