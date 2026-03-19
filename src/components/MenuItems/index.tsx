@@ -18,7 +18,7 @@ export const MenuItems = () => {
             {items.map((item) => (
               <li key={item}>
                 <a
-                  className="font-medium hover:text-[#cccccc] transition-colors"
+                  className="font-medium hover:text-text-tertiary transition-colors"
                   href="#"
                 >
                   {item}

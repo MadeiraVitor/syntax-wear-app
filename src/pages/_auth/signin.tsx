@@ -13,7 +13,7 @@ export const Route = createFileRoute("/_auth/signin")({
 
 function RouteComponent() {
   return (
-    <section className="bg-[#f5f5f5] h-screen w-full flex items-center justify-center p-5">
+    <section className="bg-surface h-screen w-full flex items-center justify-center p-5">
       <div className="w-112.5 bg-white p-10 rounded-[18px] shadow-md">
         <div className="flex flex-col">
           <Logo />
@@ -22,7 +22,7 @@ function RouteComponent() {
 
           <p className="mb-3.5">Escolha seu método de login</p>
 
-          <button className="w-full flex items-center justify-center gap-2 border border-gray-300 rounded-md py-3 hover:bg-gray-50 transition cursor-pointer">
+          <button className="w-full flex items-center justify-center gap-2 border border-border rounded-md py-3 hover:bg-gray-50 transition cursor-pointer">
             <img src={GoogleIcon} alt="Ícone do Google" className="w-5 h-5" />
             <span className="text-sm font-medium">Continuar com o Google</span>
           </button>
@@ -31,8 +31,8 @@ function RouteComponent() {
 
           <LoginForm />
 
-          <p className='text-sm text-gray-600 mt-6 text-center'>
-                Ainda não possui conta? <a href="/signup" className='text-[#5433EB] hover:underline'>Cadastre-se</a>
+          <p className='text-sm text-gray-text mt-6 text-center'>
+                Ainda não possui conta? <a href="/signup" className='text-accent hover:underline'>Cadastre-se</a>
             </p>
         </div>
       </div>
