@@ -24,7 +24,7 @@ export const registerUserFormSchema = z
         "Data de nascimento inválida!",
       ),
 
-    cellphone: z.string().nonempty("Campo obrigatório!"),
+    phone: z.string().nonempty("Campo obrigatório!"),
 
     firstName: z.string().nonempty("Campo obrigatório!"),
     lastName: z.string().nonempty("Campo obrigatório!"),
@@ -34,7 +34,7 @@ export const registerUserFormSchema = z
     path: ["confirmPassword"],
   });
 
-type RegisterFormData = z.infer<typeof registerUserFormSchema>;
+export type RegisterFormData = z.infer<typeof registerUserFormSchema>;
 
 export const useRegisterForm = () => {
   const {

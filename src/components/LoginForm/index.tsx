@@ -30,7 +30,7 @@ export const LoginForm = () => {
 
   const onSubmit = async (data: SignInFormData) => {
     setIsSubmitting(true);
-    
+
     try {
       await signIn(data);
       navigate({ to: "/" });
@@ -69,8 +69,6 @@ export const LoginForm = () => {
         <span className="text-red-500 text-sm">{errors.password.message}</span>
       )}
 
-      {error && <span className="text-red-500 text-sm">{error}</span>}
-
       <button
         className="bg-[#212A2F] w-full p-3.5 rounded-[1px] cursor-pointer text-white disabled:opacity-60 disabled:cursor-not-allowed"
         type="submit"
@@ -78,6 +76,8 @@ export const LoginForm = () => {
       >
         {isSubmitting ? "Entrando..." : "Entrar"}
       </button>
+
+      {error && <span className="text-red-500 text-sm">{error}</span>}
     </form>
   );
 };

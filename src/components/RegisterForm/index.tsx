@@ -1,10 +1,38 @@
-import { useRegisterForm } from "./register-form.schema";
+import { useNavigate } from "@tanstack/react-router";
+import { useAuth } from "../../contexts/AuthContext/AuthContext";
+import { useRegisterForm, type RegisterFormData } from "./register-form.schema";
+import { useState } from "react";
 
 export const RegisterForm = () => {
-  const { register, errors, isSubmitting } = useRegisterForm();
+  const [error, setError] = useState<string | null>(null);
+
+  const { register, errors, isSubmitting, handleSubmit } = useRegisterForm();
+
+  const { signUp } = useAuth();
+
+  const navigate = useNavigate();
+
+  async function handleRegisterUser(data: RegisterFormData) {
+    const { confirmPassword, ...dataWithoutConfirmPassword } = data;
+
+    setError(null);
+
+    try {
+      await signUp(dataWithoutConfirmPassword);
+      navigate({ to: "/" });
+    } catch (error) {
+      if (error instanceof Error) {
+        console.error("Erro ao registrar usuário:", error.message);
+        setError(error.message);
+      } else {
+        console.error("Erro ao registrar usuário");
+        setError("Erro ao registrar usuário.");
+      }
+    }
+  }
 
   return (
-    <form>
+    <form onSubmit={handleSubmit(handleRegisterUser)}>
       <div>
         <label className="text-xs text-gray-600">E-mail*</label>
         <input
@@ -55,9 +83,7 @@ export const RegisterForm = () => {
           {...register("firstName")}
         />
         {errors.firstName && (
-          <p className="text-xs text-error mt-1">
-            {errors.firstName.message}
-          </p>
+          <p className="text-xs text-error mt-1">{errors.firstName.message}</p>
         )}
       </div>
 
@@ -96,31 +122,31 @@ export const RegisterForm = () => {
           {...register("birthDate")}
         />
         {errors.birthDate && (
-          <p className="text-xs text-error mt-1">
-            {errors.birthDate.message}
-          </p>
+          <p className="text-xs text-error mt-1">{errors.birthDate.message}</p>
         )}
       </div>
 
       <div>
         <label className="text-xs text-gray-600">Celular*</label>
         <input
-          className={`w-full border rounded-xs px-1 mt-1 focus:outline-none focus:ring-2 ${errors.cellphone ? "border-red-500 focus:ring-red-400" : "border-border focus:ring-accent"}`}
+          className={`w-full border rounded-xs px-1 mt-1 focus:outline-none focus:ring-2 ${errors.phone ? "border-red-500 focus:ring-red-400" : "border-border focus:ring-accent"}`}
           type="tel"
           placeholder="Celular"
-          {...register("cellphone")}
+          {...register("phone")}
         />
-        {errors.cellphone && (
-          <p className="text-xs text-error mt-1">
-            {errors.cellphone.message}
-          </p>
+        {errors.phone && (
+          <p className="text-xs text-error mt-1">{errors.phone.message}</p>
         )}
       </div>
 
-        <button disabled={isSubmitting} className="bg-accent text-white font-semibold uppercase rounded-md py-3 transition-all hover:bg-accent-hover disabled:opacity-50 w-full cursor-pointer mt-4">
-            {isSubmitting ? "Cadastrando..." : "Cadastrar"}
-        </button>
+      <button
+        disabled={isSubmitting}
+        className="bg-accent text-white font-semibold uppercase rounded-md py-3 transition-all hover:bg-accent-hover disabled:opacity-50 w-full cursor-pointer mt-4"
+      >
+        {isSubmitting ? "Cadastrando..." : "Cadastrar"}
+      </button>
 
+      {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
     </form>
   );
 };
