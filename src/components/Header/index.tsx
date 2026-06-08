@@ -5,21 +5,32 @@ import { MenuMobile } from "../MenuMobile";
 import { CartButton } from "../CartButton";
 import { CartDrawer } from "../CartDrawer";
 import { useState } from "react";
+import { useAuth } from "../../contexts/AuthContext/AuthContext";
+import { PiSignOutLight } from "react-icons/pi";
 
 export interface NavLink {
-    name: string;
-    href: string;
+  name: string;
+  href: string;
 }
 
 const navLinks: NavLink[] = [
-    { name: "Masculino", href: "/products/category/masculino" },
-    { name: "Feminino", href: "/products/category/feminino" },
-    { name: "Outlet", href: "/products/category/outlet" },
+  { name: "Masculino", href: "/products/category/masculino" },
+  { name: "Feminino", href: "/products/category/feminino" },
+  { name: "Outlet", href: "/products/category/outlet" },
 ];
 
 export const Header = () => {
-    const [cartIsOpen, setCartIsOpen] = useState<boolean>(false);
+  const [cartIsOpen, setCartIsOpen] = useState<boolean>(false);
 
+  const { isAuthenticated, signOut } = useAuth();
+
+  const handleSignOut = async () => {
+    try {
+      await signOut();
+    } catch (error) {
+      console.error("Erro ao fazer logout:", error);
+    }
+  };
 
   return (
     <div className="relative">
@@ -31,11 +42,11 @@ export const Header = () => {
 
           <nav className="hidden lg:block">
             <ul className="flex gap-10">
-                {navLinks.map((link) => (
-                  <li key={link.name}>
-                    <Link to={link.href}>{link.name}</Link>
-                  </li>
-                ))}
+              {navLinks.map((link) => (
+                <li key={link.name}>
+                  <Link to={link.href}>{link.name}</Link>
+                </li>
+              ))}
             </ul>
           </nav>
 
@@ -51,9 +62,19 @@ export const Header = () => {
                 <MenuMobile navLinks={navLinks} />
               </li>
               <li className="hidden lg:block">
-                <Link to="/signup">
-                  <img src={IconUser} alt="Ícone de login" />
-                </Link>
+                {isAuthenticated ? (
+                  <button
+                    onClick={handleSignOut}
+                    className="cursor-pointer hover:opacity-70 transition-opacity flex items-center gap-2"
+                  >
+                    Sair
+                    <PiSignOutLight className="w-6 h-6" />
+                  </button>
+                ) : (
+                  <Link to="/signup">
+                    <img src={IconUser} alt="Ícone de login" />
+                  </Link>
+                )}
               </li>
               <li>
                 <CartButton onClick={() => setCartIsOpen(true)} />

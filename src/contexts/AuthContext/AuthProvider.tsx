@@ -29,9 +29,6 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
         const data = await response.json();
         setUser(data.user);
         setIsAuthenticated(true);
-
-        console.log(data.user);
-        
       } catch (error) {
         console.error("Erro ao buscar perfil do usuário:", error);
         setUser(null);
@@ -64,9 +61,18 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
 
   async function register(data: RegisterInput): Promise<void> {}
 
-  function signOut(): void {
-    setUser(null);
-    setIsAuthenticated(false);
+  async function signOut(): Promise<void> {
+    try {
+      await fetch("http://localhost:3000/auth/signout", {
+        method: "POST",
+        credentials: "include",
+      });
+
+      setUser(null);
+      setIsAuthenticated(false);
+    } catch (error) {
+      console.error("Erro ao fazer logout:", error);
+    }
   }
 
   async function signInWithGoogle(credential: string): Promise<void> {
