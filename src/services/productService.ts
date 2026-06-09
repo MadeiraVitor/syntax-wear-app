@@ -22,8 +22,7 @@ export async function getProducts({ page, limit = DEFAULT_LIMIT }:  GetProductPa
         limit: limit.toString()
     });
 
-    // const url = `${API_BASE_URL}/products?${ params.toString() }`;
-    const url = `https://syntax-wear-api-l207.onrender.com/api-docs/#tag/products/GET/products?${ params.toString() }`;
+    const url = `${API_BASE_URL}/products?${ params.toString() }`;
 
     try {
         const response = await fetch(url);
