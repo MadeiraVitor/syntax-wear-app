@@ -37,7 +37,7 @@ A aplicação permite que o usuário explore produtos, visualize detalhes, calcu
 
 
 🚀 Deploy do projeto:
-<a href="https://syntax-wear-app-sage.vercel.app/" target="_blank">Deploy</a>
+<a href="https://syntax-wear-app-vitor-madeiras-projects.vercel.app/" target="_blank">Deploy</a>
 
 
 ---
