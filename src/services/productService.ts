@@ -1,7 +1,7 @@
 import { notFound } from "@tanstack/react-router";
 import type { Product } from "../interfaces/product";
 
-const API_BASE_URL = "http://localhost:3000";
+export const API_URL = import.meta.env.VITE_API_URL;
 const DEFAULT_LIMIT = 3;
 
 interface GetProductParams { 
@@ -22,7 +22,7 @@ export async function getProducts({ page, limit = DEFAULT_LIMIT }:  GetProductPa
         limit: limit.toString()
     });
 
-    const url = `${API_BASE_URL}/products?${ params.toString() }`;
+    const url = `${API_URL}/products?${ params.toString() }`;
 
     try {
         const response = await fetch(url);
@@ -43,7 +43,7 @@ export async function getProductByCategoryId(categoryId: number, paginationParam
         limit: (paginationParams?.limit || DEFAULT_LIMIT).toString(),
         categoryId: categoryId.toString()
     });
-    const response = await fetch(`${API_BASE_URL}/products?${params.toString()}`);
+    const response = await fetch(`${API_URL}/products?${params.toString()}`);
 
     if (!response.ok) { 
         throw new Error(`Erro ao buscar produtos por categoria: ${response.statusText}`);
@@ -53,7 +53,7 @@ export async function getProductByCategoryId(categoryId: number, paginationParam
 }
 
 export async function getProductDetailById(id: string): Promise<Product | null> {
-  const response = await fetch(`http://localhost:3000/products/${id}`);
+  const response = await fetch(`${API_URL}/products/${id}`);
 
   if (!response.ok) {
     throw notFound();

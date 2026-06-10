@@ -1,9 +1,10 @@
 import { notFound } from "@tanstack/react-router";
+import { API_URL } from "./productService";
 
 export async function getCategoryByName(name: string) {
     const params = new URLSearchParams({ page: '1', limit: '1', search: name });
 
-    const response = await fetch(`http://localhost:3000/categories?${params.toString()}`);
+    const response = await fetch(`${API_URL}/categories?${params.toString()}`);
 
     if (!response.ok) {
         throw notFound();
